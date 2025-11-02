@@ -1,0 +1,33 @@
+{
+  "name": "specrails-tools",
+  "displayName": "SpecRails Tools",
+  "description": "AI-assisted specification utilities",
+  "version": "0.0.1",
+  "publisher": "specrails",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "activationEvents": [
+    "onCommand:specrails.structure"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "specrails.structure",
+        "title": "SpecRails: Extract Structure"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "@specrails/core": "*"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0"
+  }
+}

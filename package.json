@@ -1,0 +1,7 @@
+{
+  "name": "specrails",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
