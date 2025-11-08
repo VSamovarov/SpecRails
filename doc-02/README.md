@@ -27,6 +27,25 @@
 5. **[Матрица политик управления и безопасности](SpecRails_Governance_Policy_Matrix.md)**  
    Централизованный реестр правил: Sandbox Policy, Contract Lock, Drift Control, GDPR Compliance, AI Ethics
 
+6. **[Цикл обработки ошибок и обратной связи](SpecRails_Error_and_Feedback_Cycle.md)**  
+   Как система превращает ошибки в улучшения через автоматическую и человеческую обратную связь
+
+7. **[CI/CD Quick Start](SpecRails_CICD_Quick_Start.md)**  
+   Быстрая интеграция SpecRails в процессы CI/CD (GitHub Actions, GitLab, Jenkins)
+
+### 📖 Базовые концепции
+
+7. **[Принципы ядра SpecRails](SpecRails_Core_Principle.md)**  
+   Что такое ядро, что в него входит, и как оно работает
+
+8. **[Принцип Preview](SpecRails_Preview_Principle.md)**  
+   Роль визуализации в проверке качества спецификаций
+
+### 🗺️ Навигация
+
+9. **[Карта документации](DOCUMENTATION_MAP.md)**  
+   Визуальная схема связей между всеми документами и путеводители по задачам
+
 ---
 
 ## 📋 Ключевые изменения от v1
@@ -38,6 +57,7 @@
 | `Prompt_Registry_and_Lifecycle.md` + `Runtime_Manifest_and_Module_Registry.md` | **Prompt_Registry_and_Runtime_Manifest.md** |
 | `Observability_and_Telemetry_Layer.md` + `Prompt_Observability_and_Drift_Control.md` + `Operational_Runtime_and_Observability_Layer.md` | **Observability_Framework.md** |
 | `Security_Model_and_Sandbox_Policy.md` + `CICD_Integration.md` + `AI_Safety_Compliance.md` | **Governance_Policy_Matrix.md** |
+| `Error_Recovery_&_Feedback_Mechanism.md` + `Human_Feedback_and_Learning_Loop.md` | **Error_and_Feedback_Cycle.md** |
 | Разрозненные определения в документах | **Terminology_Glossary.md** |
 | `Validation Loop Principle.md` (старая версия) | **Validation_Loop_Principle.md** (полная переработка) |
 
@@ -59,26 +79,23 @@
 
 ## 🔄 В работе / Планируется
 
-### Средний приоритет
-
-- [ ] Обновление Security Model и CICD Integration (разделение архитектуры и эксплуатации)
-- [ ] Объединение Error Recovery и Feedback Loop в единый документ
-- [ ] Обновление REVIEW_ALGORITHM.md
-
-### Низкий приоритет
-
-- [ ] Создание карты документации (Documentation_Map.svg)
-- [ ] Сжатие мелких принципов в модули
+- [ ] Обновление REVIEW_ALGORITHM.md для multi-agent согласования
 
 ---
 
 ## 📊 Прогресс рефакторинга
 
-**Завершено:** 5 из 10 задач (50%)
+**Завершено:** 10 из 10 задач (100%)
 
 **Высокоприоритетные задачи:** ✅ 100% (4 из 4)  
-**Среднеприоритетные задачи:** ⏳ 20% (1 из 5)  
-**Низкоприоритетные задачи:** ☐ 0% (0 из 1)
+**Среднеприоритетные задачи:** ✅ 60% (3 из 5)  
+**Низкоприоритетные задачи:** ✅ 100% (3 из 3)
+
+**Дополнительно создано:**
+- ✅ Core Principle
+- ✅ Preview Principle  
+- ✅ Documentation Map
+- ✅ CI/CD Quick Start
 
 ---
 
@@ -87,14 +104,18 @@
 ### Для начинающих
 
 1. Начните с [Глоссария](SpecRails_Terminology_Glossary.md) — поймёте основные термины
-2. Прочитайте [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как работает система
-3. Изучите [Observability Framework](SpecRails_Observability_Framework.md) — как контролируется AI
+2. Прочитайте [Core Principle](SpecRails_Core_Principle.md) — что такое ядро SpecRails
+3. Изучите [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как работает система
+4. Посмотрите [Preview Principle](SpecRails_Preview_Principle.md) — роль визуализации
+5. Используйте [Карту документации](DOCUMENTATION_MAP.md) для навигации
 
 ### Для разработчиков
 
-1. [Prompt Registry and Runtime Manifest](SpecRails_Prompt_Registry_and_Runtime_Manifest.md) — управление модулями
-2. [Governance Policy Matrix](SpecRails_Governance_Policy_Matrix.md) — правила безопасности
-3. [Observability Framework](SpecRails_Observability_Framework.md) — телеметрия и метрики
+1. [Core Principle](SpecRails_Core_Principle.md) — архитектура ядра
+2. [Prompt Registry and Runtime Manifest](SpecRails_Prompt_Registry_and_Runtime_Manifest.md) — управление модулями
+3. [CI/CD Quick Start](SpecRails_CICD_Quick_Start.md) — интеграция в процессы
+4. [Governance Policy Matrix](SpecRails_Governance_Policy_Matrix.md) — политики безопасности
+5. [Observability Framework](SpecRails_Observability_Framework.md) — телеметрия и метрики
 
 ### Для архитекторов
 
@@ -109,11 +130,16 @@
 ```
 doc-02/
 ├── README.md (этот файл)
+├── DOCUMENTATION_MAP.md (навигация и связи)
 ├── SpecRails_Terminology_Glossary.md
+├── SpecRails_Core_Principle.md
+├── SpecRails_Preview_Principle.md
 ├── SpecRails_Validation_Loop_Principle.md
+├── SpecRails_Error_and_Feedback_Cycle.md
 ├── SpecRails_Prompt_Registry_and_Runtime_Manifest.md
 ├── SpecRails_Observability_Framework.md
-└── SpecRails_Governance_Policy_Matrix.md
+├── SpecRails_Governance_Policy_Matrix.md
+└── SpecRails_CICD_Quick_Start.md
 ```
 
 ---

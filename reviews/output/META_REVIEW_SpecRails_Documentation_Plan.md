@@ -113,11 +113,11 @@
 | 3  | Консолидация Observability/Telemetry/Drift Control     | Высокий   | AI Agent      | ✅      | Завершено 2025-11-08 |
 | 4  | Создание `SpecRails_Terminology_Glossary.md`           | Средний   | AI Agent      | ✅      | Завершено 2025-11-08 |
 | 5  | Создание `Governance_Policy_Matrix.md`                 | Средний   | AI Agent      | ✅      | Завершено 2025-11-08 |
-| 6  | Обновление `Security_Model.md` и `CICD_Integration.md` | Средний   | AI Agent      | ☐      |             |
-| 7  | Создание карты документации (`Documentation_Map.svg`)  | Низкий    | AI Agent      | ☐      |             |
-| 8  | Сжатие мелких принципов до модулей                     | Низкий    | AI Agent      | ☐      |             |
-| 9  | Добавление front-matter метаданных                     | Низкий    | AI Agent      | ✅      | Добавлено во все новые документы |
-| 10 | Обновление `REVIEW_ALGORITHM.md`                       | Средний   | AI Agent      | ☐      |             |
+| 6  | Объединение `Error Recovery` и `Feedback Loop`         | Средний   | AI Agent      | ✅      | Завершено 2025-11-09 |
+| 7  | Обновление `Security_Model.md` и `CICD_Integration.md` | Средний   | AI Agent      | ☐      |             |
+| 8  | Создание карты документации (`Documentation_Map.svg`)  | Низкий    | AI Agent      | ☐      |             |
+| 9  | Сжатие мелких принципов до модулей                     | Низкий    | AI Agent      | ☐      |             |
+| 10 | Добавление front-matter метаданных                     | Низкий    | AI Agent      | ✅      | Добавлено во все новые документы |
 
 ---
 
