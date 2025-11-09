@@ -1,17 +1,15 @@
----
 version: 2.0
 status: draft
 reviewed_by: AI Agent
 last_updated: 2025-11-09
+ 
+# 🗺️ Documentation Map — обзор и навигация
+
+Карта принципиальных документов SpecRails (слой концепций и ролей). Обновлено с учётом переработанных: Parser, Orchestrator, Prompt Registry & Runtime Manifest, Validation Loop, CI/CD Quick Start.
+
 ---
 
-# 🗺️ Карта документации SpecRails
-
-Визуальная навигация по всем документам и их связям.
-
----
-
-## 📚 Структура документации
+## 📚 Структура
 
 ```
 SpecRails Documentation v2.0
@@ -21,28 +19,25 @@ SpecRails Documentation v2.0
 │                                      │
 ├─── ⚙️ CORE LAYER                     │
 │    │                                 │
-│    ├─── Core_Principle ──────────────┤
-│    │    (что такое ядро)            │
-│    │                                 │
-│    └─── Preview_Principle ───────────┤
-│         (роль визуализации)         │
+│    ├─── Core_Principle ──────────────┤ (границы детерминированного слоя)
+│    ├─── Preview_Principle ───────────┤ (визуализация DSL)
+│    └─── Parser_Architecture ─────────┤ (принципы парсера)
 │                                      │
-├─── 🔄 RUNTIME LAYER                  │
+├─── 🔄 RUNTIME / ENV LAYER            │
 │    │                                 │
-│    ├─── Validation_Loop_Principle ───┤
-│    │    (двухконтурная валидация)   │
-│    │                                 │
-│    ├─── Error_and_Feedback_Cycle ────┤
-│    │    (обработка ошибок)          │
-│    │                                 │
-│    └─── Prompt_Registry_and_        │
-│         Runtime_Manifest ────────────┤
-│         (управление модулями)       │
+│    ├─── Orchestrator_and_Environment ┤ (координация компонентов)
+│    ├─── Validation_Loop_Principle ───┤ (двухконтурная проверка)
+│    ├─── Error_and_Feedback_Cycle ────┤ (механика обратной связи)
+│    └─── Prompt_Registry_and_Runtime_ │
+│         Manifest ────────────────────┤ (управление промптами/модулями)
 │                                      │
 ├─── 🛡️ GOVERNANCE LAYER               │
 │    │                                 │
 │    └─── Governance_Policy_Matrix ────┤
 │         (политики и безопасность)   │
+│                                      │
+├─── 🔄 CI/CD & AUTOMATION             │
+│    └─── CICD_Quick_Start ────────────┤ (интеграция в pipeline)
 │                                      │
 └─── 📊 OBSERVABILITY LAYER            │
      │                                 │
@@ -52,7 +47,7 @@ SpecRails Documentation v2.0
 
 ---
 
-## 🔗 Связи между документами
+## 🔗 Основные связи
 
 ### 🎯 Начните здесь
 
@@ -69,9 +64,11 @@ SpecRails Documentation v2.0
 ```
 1. Core_Principle
    ↓
-2. Prompt_Registry_and_Runtime_Manifest
+2. Parser_Architecture / Orchestrator_and_Environment
    ↓
-3. Governance_Policy_Matrix
+3. Prompt_Registry_and_Runtime_Manifest
+   ↓
+4. CICD_Quick_Start
 ```
 
 **Для архитекторов:**
@@ -106,9 +103,10 @@ SpecRails Documentation v2.0
 - Terminology_Glossary (определения)
 
 **Связан с:**
-- → Validation_Loop_Principle (как ядро участвует в валидации)
-- → Preview_Principle (почему Preview не часть ядра)
-- → Prompt_Registry (как ядро работает с модулями)
+– Validation_Loop_Principle (роль детерминированной проверки)
+– Preview_Principle (визуализация вне ядра)
+– Parser_Architecture (граница обращения к AI)
+– Prompt_Registry_and_Runtime_Manifest (потребление контрактов)
 
 **Ключевые концепции:**
 - Что входит в ядро
@@ -124,8 +122,9 @@ SpecRails Documentation v2.0
 - Core_Principle (контекст ядра)
 
 **Связан с:**
-- → Validation_Loop_Principle (роль Preview в цикле)
-- → Error_and_Feedback_Cycle (визуальная обратная связь)
+– Validation_Loop_Principle (человеческая проверка)
+– Error_and_Feedback_Cycle (источник смыслового feedback)
+– Parser_Architecture (формат получаемого DSL)
 
 **Ключевые концепции:**
 - Preview как инструмент валидации
@@ -141,9 +140,11 @@ SpecRails Documentation v2.0
 - Core_Principle (роль ядра)
 
 **Связан с:**
-- → Preview_Principle (человеческая валидация)
-- → Error_and_Feedback_Cycle (обработка ошибок)
-- → Observability_Framework (метрики валидации)
+– Parser_Architecture (источник DSL для проверки)
+– Orchestrator_and_Environment (координация цикла)
+– Preview_Principle (смысловой контур)
+– Error_and_Feedback_Cycle (механизм корректировок)
+– Observability_Framework (метрики качества)
 
 **Ключевые концепции:**
 - Двухконтурная валидация
@@ -160,8 +161,9 @@ SpecRails Documentation v2.0
 - Validation_Loop_Principle (контекст цикла)
 
 **Связан с:**
-- → Observability_Framework (метрики обучения)
-- → Prompt_Registry (эволюция контрактов)
+– Validation_Loop_Principle (источник ошибок)
+– Prompt_Registry_and_Runtime_Manifest (адаптация промптов)
+– Observability_Framework (лог ошибок)
 
 **Ключевые концепции:**
 - Типы ошибок
@@ -178,9 +180,26 @@ SpecRails Documentation v2.0
 - Core_Principle (архитектура ядра)
 
 **Связан с:**
-- → Validation_Loop_Principle (использование контрактов)
-- → Governance_Policy_Matrix (контроль версий)
-- → Observability_Framework (телеметрия модулей)
+– Parser_Architecture (правила извлечения)
+– Orchestrator_and_Environment (динамическое обращение к контрактам)
+– Validation_Loop_Principle (качественный вход в цикл)
+– Governance_Policy_Matrix (политики версий / approvals)
+– Observability_Framework (телеметрия загрузок)
+– CICD_Quick_Start (валидируемые артефакты)
+### Parser_Architecture
+**Зависимости:** Terminology_Glossary, Prompt_Registry.
+**Связан с:** Orchestrator_and_Environment (точка использования AI), Validation_Loop_Principle (источник DSL), CICD_Quick_Start (консистентность контрактов).
+**Ключевые концепции:** Единственная точка общения с AI, автоопределение контрактов, композиция DSL.
+
+### Orchestrator_and_Environment
+**Зависимости:** Parser_Architecture, Prompt_Registry_and_Runtime_Manifest.
+**Связан с:** Validation_Loop_Principle (триггер процесса), CICD_Quick_Start (инициируемые проверки), Observability_Framework (источники событий).
+**Ключевые концепции:** Координация, внедрение зависимостей, разделение детерминированных и недетерминированных шагов.
+
+### CICD_Quick_Start
+**Зависимости:** Validation_Loop_Principle, Governance_Policy_Matrix.
+**Связан с:** Prompt_Registry_and_Runtime_Manifest (версии), Observability_Framework (дрейф/метрики), Core_Principle (границы автоматизации).
+**Ключевые концепции:** Валидация, drift контроль, отчётность, блокировка.
 
 **Ключевые концепции:**
 - Prompt Registry (версии промптов)
@@ -273,30 +292,27 @@ SpecRails Documentation v2.0
 
 ---
 
-## 📊 Граф зависимостей
+## 📊 Граф (упрощённо)
 
 ```
-                    Terminology_Glossary
+            Terminology_Glossary
                             │
-                ┌───────────┼───────────┐
-                │           │           │
-                ▼           ▼           ▼
-         Core_Principle  Validation  Prompt_Registry
-                │        Loop_Principle    │
-                │           │           │
-                ▼           │           │
-         Preview_Principle  │           │
-                │           │           │
-                └─────┬─────┴───────────┘
-                      │
-                      ▼
-            Error_and_Feedback_Cycle
-                      │
-         ┌────────────┼────────────┐
-         │            │            │
-         ▼            ▼            ▼
-   Governance    Observability
-   Policy_Matrix  Framework
+        ┌──────────────┬──────────────┐
+        │              │              │
+        ▼              ▼              ▼
+     Core_Principle   Parser_Architecture  Prompt_Registry
+        │              │              │
+        │              └──────┐       │
+        ▼                     ▼       │
+     Validation_Loop_Principle  Orchestrator_and_Environment
+        │              │       │
+        │              │       ▼
+        │              │   CICD_Quick_Start
+        │              │       │
+        ├─────► Error_and_Feedback_Cycle │
+        │              │       │
+        ▼              ▼       ▼
+     Observability_Framework  Governance_Policy_Matrix
 ```
 
 ---
@@ -334,7 +350,7 @@ SpecRails Documentation v2.0
 
 ---
 
-## 📝 Краткие описания
+## 📝 Краткие описания (обновлённые)
 
 | Документ | Одной строкой |
 |----------|---------------|
@@ -343,7 +359,10 @@ SpecRails Documentation v2.0
 | **Preview_Principle** | Как визуализация помогает проверке |
 | **Validation_Loop_Principle** | Двухконтурная валидация AI + человек |
 | **Error_and_Feedback_Cycle** | Как ошибки превращаются в улучшения |
-| **Prompt_Registry_and_Runtime_Manifest** | Управление промптами и модулями |
+| **Prompt_Registry_and_Runtime_Manifest** | Управление промптами, версиями и активными модулями |
+| **Parser_Architecture** | Принципы извлечения и композиции DSL через AI |
+| **Orchestrator_and_Environment** | Координация недетерминированного окружения |
+| **CICD_Quick_Start** | Включение проверки и drift контроля в pipeline |
 | **Governance_Policy_Matrix** | Все правила безопасности и контроля |
 | **Observability_Framework** | Метрики, логи и мониторинг системы |
 
@@ -376,7 +395,7 @@ SpecRails Documentation v2.0
 
 ---
 
-## 🔄 Последовательность обновлений
+## 🔄 Последовательность обновлений (dependency impact)
 
 При изменении одного документа проверьте связанные:
 
@@ -389,12 +408,24 @@ SpecRails Documentation v2.0
 - ✅ Prompt_Registry
 
 **При обновлении Validation_Loop:**
-- ✅ Error_and_Feedback_Cycle
-- ✅ Observability_Framework
+– Error_and_Feedback_Cycle
+– Observability_Framework
+– CICD_Quick_Start (изменение критериев проверки)
 
 **При обновлении Governance_Policy:**
-- ✅ Prompt_Registry
-- ✅ Observability_Framework
+– Prompt_Registry_and_Runtime_Manifest
+– Observability_Framework
+– CICD_Quick_Start (политики блокировки)
+
+**При обновлении Parser_Architecture:**
+– Orchestrator_and_Environment
+– Validation_Loop_Principle
+– CICD_Quick_Start (валидируемые контракты)
+
+**При обновлении Orchestrator_and_Environment:**
+– CICD_Quick_Start
+– Observability_Framework
+– Validation_Loop_Principle
 
 ---
 
