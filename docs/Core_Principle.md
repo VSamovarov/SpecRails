@@ -17,7 +17,7 @@ last_updated: 2025-11-09
 
 **Ядро** — это компоненты, которые **работают с готовым DSL**: проверяют, собирают, управляют версиями.
 
-**Окружение** — это всё, что **помогает создать DSL** (см. [Orchestrator and Environment](SpecRails_Orchestrator_and_Environment.md)).
+**Окружение** — это всё, что **помогает создать DSL** (см. [Orchestrator and Environment](Orchestrator_and_Environment.md)).
 
 ---
 
@@ -141,7 +141,7 @@ schema_registry:
 - Разные реализации для разных сред (VS Code, CLI, Web)
 - Настраивается извне (не создаёт зависимости сам)
 
-Подробнее: [Orchestrator and Environment](SpecRails_Orchestrator_and_Environment.md)
+Подробнее: [Orchestrator and Environment](Orchestrator_and_Environment.md)
 
 ---
 
@@ -155,7 +155,7 @@ schema_registry:
 - Ядро может работать **без Parser** — можно писать DSL вручную
 - Использует Prompt Registry (окружение)
 
-Подробнее: [Parser Architecture](SpecRails_Parser_Architecture.md)
+Подробнее: [Parser Architecture](Parser_Architecture.md)
 
 ---
 
@@ -373,7 +373,7 @@ schema_registry:
 - Создаёт DSL (AI Agent, Parser)
 - Координирует процесс (Orchestrator)
 - Показывает результат (Preview)
-- Подробнее: [Orchestrator and Environment](SpecRails_Orchestrator_and_Environment.md)
+- Подробнее: [Orchestrator and Environment](Orchestrator_and_Environment.md)
 
 Это делает SpecRails **надёжной и предсказуемой системой**, где:
 - **Ядро — судья** корректности DSL
@@ -383,9 +383,9 @@ schema_registry:
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Validator, Assembler, Schema Registry
-- [Orchestrator and Environment](SpecRails_Orchestrator_and_Environment.md) — как координируется работа вокруг ядра
-- [Parser Architecture](SpecRails_Parser_Architecture.md) — преобразование текста в DSL
-- [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как ядро взаимодействует с окружением
-- [Preview Principle](SpecRails_Preview_Principle.md) — роль визуализации
-- [Error and Feedback Cycle](SpecRails_Error_and_Feedback_Cycle.md) — обработка ошибок валидации
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Validator, Assembler, Schema Registry
+- [Orchestrator and Environment](Orchestrator_and_Environment.md) — как координируется работа вокруг ядра
+- [Parser Architecture](Parser_Architecture.md) — преобразование текста в DSL
+- [Validation Loop](Validation_Loop_Principle.md) — как ядро взаимодействует с окружением
+- [Preview Principle](Preview_Principle.md) — роль визуализации
+- [Error and Feedback Cycle](Error_and_Feedback_Cycle.md) — обработка ошибок валидации

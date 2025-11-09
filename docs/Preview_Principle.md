@@ -350,6 +350,6 @@ Preview превращает технический DSL в **понятное п
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Preview, Renderer
-- [Validation Loop](SpecRails_Validation_Loop_Principle.md) — место Preview в цикле
-- [Core Principle](SpecRails_Core_Principle.md) — почему Preview не часть ядра
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Preview, Renderer
+- [Validation Loop](Validation_Loop_Principle.md) — место Preview в цикле
+- [Core Principle](Core_Principle.md) — почему Preview не часть ядра

@@ -461,6 +461,6 @@ SpecRails превращает каждую ошибку в улучшение:
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Feedback, Validator, Contract
-- [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как валидация встроена в цикл
-- [Observability Framework](SpecRails_Observability_Framework.md) — метрики обучения и эффективности
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Feedback, Validator, Contract
+- [Validation Loop](Validation_Loop_Principle.md) — как валидация встроена в цикл
+- [Observability Framework](Observability_Framework.md) — метрики обучения и эффективности

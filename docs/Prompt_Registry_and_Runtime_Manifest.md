@@ -363,7 +363,7 @@ Prompt Registry — источник истины для параметров г
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Contract, Manifest, Registry, Parser
-- [Core Principle](SpecRails_Core_Principle.md) — архитектура ядра и окружения
-- [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как промпты используются в цикле валидации
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Contract, Manifest, Registry, Parser
+- [Core Principle](Core_Principle.md) — архитектура ядра и окружения
+- [Validation Loop](Validation_Loop_Principle.md) — как промпты используются в цикле валидации
 - [Security Model](SpecRails_Security_Model.md) — детали Sandbox Policy

@@ -383,6 +383,6 @@ SpecRails не может сделать AI абсолютно предсказ�
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Telemetry, Drift, Observability
-- [Validation Loop](SpecRails_Validation_Loop_Principle.md) — как валидация связана с метриками
-- [Prompt Registry](SpecRails_Prompt_Registry_and_Runtime_Manifest.md) — связь контрактов и drift control
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Telemetry, Drift, Observability
+- [Validation Loop](Validation_Loop_Principle.md) — как валидация связана с метриками
+- [Prompt Registry](Prompt_Registry_and_Runtime_Manifest.md) — связь контрактов и drift control

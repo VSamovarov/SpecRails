@@ -381,6 +381,6 @@ sensitive_data:
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](SpecRails_Terminology_Glossary.md) — определения Governance, Sandbox, Compliance
-- [Observability Framework](SpecRails_Observability_Framework.md) — как мониторятся политики
-- [Prompt Registry](SpecRails_Prompt_Registry_and_Runtime_Manifest.md) — управление версиями контрактов
+- [Глоссарий терминов](Terminology_Glossary.md) — определения Governance, Sandbox, Compliance
+- [Observability Framework](Observability_Framework.md) — как мониторятся политики
+- [Prompt Registry](Prompt_Registry_and_Runtime_Manifest.md) — управление версиями контрактов
