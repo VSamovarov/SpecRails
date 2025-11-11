@@ -133,11 +133,11 @@ Orchestrator выполняет функцию координатора проц
 ---
 
 ## 🔗 Связанные документы
-– `SpecRails_Core_Principle.md`
-– `SpecRails_Parser_Architecture.md`
-– `SpecRails_Prompt_Registry_and_Runtime_Manifest.md`
-– `SpecRails_Validation_Loop_Principle.md`
-– `SpecRails_Error_and_Feedback_Cycle.md`
+– `Core_Principle.md`
+– `Parser_Architecture.md`
+– `Prompt_Registry_and_Runtime_Manifest.md`
+– `Validation_Loop_Principle.md`
+– `Error_and_Feedback_Cycle.md`
 
 ---
 
