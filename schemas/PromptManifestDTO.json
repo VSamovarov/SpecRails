@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://specrails.dev/schemas/PromptManifestDTO.json",
+  "title": "Prompt Manifest DTO",
+  "description": "Контракт передачи данных между Parser и Prompt Registry",
+  "type": "object",
+  "required": ["name", "version", "contract", "status"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Уникальное имя промпта (lowercase, underscore)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Семантическая версия (semver)"
+    },
+    "contract": {
+      "type": "string",
+      "format": "uri-reference",
+      "description": "Ссылка на JSON Schema контракта ответа"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Список имён зависимых промптов"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated"],
+      "description": "Статус жизненного цикла"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "author": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "description": { "type": "string" }
+      }
+    }
+  }
+}
