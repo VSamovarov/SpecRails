@@ -459,8 +459,16 @@ SpecRails превращает каждую ошибку в улучшение:
 
 ---
 
-## 📚 Связанные документы
+## Dependencies
+- Terminology_Glossary.md
 
-- [Глоссарий терминов](Terminology_Glossary.md) — определения Feedback, Validator, Contract
-- [Validation Loop](Validation_Loop_Principle.md) — как валидация встроена в цикл
-- [Observability Framework](Observability_Framework.md) — метрики обучения и эффективности
+
+## Related Documents
+- [Validation_Loop_Principle.md](Validation_Loop_Principle.md)
+- [Prompt_Registry_and_Runtime_Manifest.md](Prompt_Registry_and_Runtime_Manifest.md)
+- [Observability_Framework.md](Observability_Framework.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

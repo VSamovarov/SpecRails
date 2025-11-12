@@ -132,14 +132,19 @@ Orchestrator выполняет функцию координатора проц
 
 ---
 
-## 🔗 Связанные документы
-– `Core_Principle.md`
-– `Parser_Architecture.md`
-– `Prompt_Registry_and_Runtime_Manifest.md`
-– `Validation_Loop_Principle.md`
-– `Error_and_Feedback_Cycle.md`
-
----
-
 ## 📝 Примечание
 Все примеры кода, интерфейсы и детали реализации убраны намеренно. Документ фиксирует только смысл и принципы.
+
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- [Core_Principle.md](Core_Principle.md)
+- [Parser_Architecture.md](Parser_Architecture.md)
+- [Prompt_Registry_and_Runtime_Manifest.md](Prompt_Registry_and_Runtime_Manifest.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

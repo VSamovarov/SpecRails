@@ -90,7 +90,7 @@ Draft → Review → Published → Active → Deprecated → Archived
 
 ---
 
-### Зависимости и совместимость
+## Dependencies
 Граф зависимостей проверяется перед использованием: отсутствующие или несовместимые версии блокируют применение контракта до приведения окружения к согласованному состоянию.
 
 ---
@@ -362,9 +362,13 @@ Prompt Registry — источник истины для параметров г
 
 ---
 
-## 📚 Связанные документы
+## Related Documents
+- [Core_Principle.md](Core_Principle.md)
+- [Parser_Architecture.md](Parser_Architecture.md)
+- [Governance_Policy_Matrix.md](Governance_Policy_Matrix.md)
+- [Observability_Framework.md](Observability_Framework.md)
+- DOCUMENTATION_MAP.md
 
-- [Глоссарий терминов](Terminology_Glossary.md) — определения Contract, Manifest, Registry, Parser
-- [Core Principle](Core_Principle.md) — архитектура ядра и окружения
-- [Validation Loop](Validation_Loop_Principle.md) — как промпты используются в цикле валидации
-- [Security Model](SpecRails_Security_Model.md) — детали Sandbox Policy
+
+## Key Concepts
+- To be expanded.

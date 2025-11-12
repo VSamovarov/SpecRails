@@ -99,13 +99,19 @@ Parser — интеллектуальный компоновщик структ�
 
 ---
 
-## 🔗 Связанные документы
-– `Orchestrator_and_Environment.md` — позиция Parser в контуре выполнения.
-– `Prompt_Registry_and_Runtime_Manifest.md` — источник контрактных метаданных.
-– `Core_Principle.md` — разграничение ядра и окружения.
-– `Validation_Loop_Principle.md` — взаимодействие с проверочными циклами.
-
----
-
 ## 📝 Примечание
 Любые конкретные интерфейсы, примеры кода, форматы промптов и технические реализации намеренно опущены в рамках данного принципиального документа.
+
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- [Core_Principle.md](Core_Principle.md)
+- [Orchestrator_and_Environment.md](Orchestrator_and_Environment.md)
+- [Validation_Loop_Principle.md](Validation_Loop_Principle.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

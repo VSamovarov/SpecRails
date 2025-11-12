@@ -245,3 +245,14 @@ last_updated: 2025-11-09
 | **[CICD_Quick_Start](CICD_Quick_Start.md)**                                         | Включение проверки и drift контроля в pipeline      |
 | **[Governance_Policy_Matrix](Governance_Policy_Matrix.md)**                         | Все правила безопасности и контроля                 |
 | **[Observability_Framework](Observability_Framework.md)**                           | Метрики, логи и мониторинг системы                  |
+
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

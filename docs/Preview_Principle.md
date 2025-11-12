@@ -348,8 +348,16 @@ Preview превращает технический DSL в **понятное п
 
 ---
 
-## 📚 Связанные документы
+## Dependencies
+- Terminology_Glossary.md
 
-- [Глоссарий терминов](Terminology_Glossary.md) — определения Preview, Renderer
-- [Validation Loop](Validation_Loop_Principle.md) — место Preview в цикле
-- [Core Principle](Core_Principle.md) — почему Preview не часть ядра
+
+## Related Documents
+- [Core_Principle.md](Core_Principle.md)
+- [Validation_Loop_Principle.md](Validation_Loop_Principle.md)
+- [Error_and_Feedback_Cycle.md](Error_and_Feedback_Cycle.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

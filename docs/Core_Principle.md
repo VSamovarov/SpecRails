@@ -383,9 +383,17 @@ schema_registry:
 
 ## 📚 Связанные документы
 
-- [Глоссарий терминов](Terminology_Glossary.md) — определения Validator, Assembler, Schema Registry
-- [Orchestrator and Environment](Orchestrator_and_Environment.md) — как координируется работа вокруг ядра
-- [Parser Architecture](Parser_Architecture.md) — преобразование текста в DSL
-- [Validation Loop](Validation_Loop_Principle.md) — как ядро взаимодействует с окружением
-- [Preview Principle](Preview_Principle.md) — роль визуализации
-- [Error and Feedback Cycle](Error_and_Feedback_Cycle.md) — обработка ошибок валидации
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- [Validation_Loop_Principle.md](Validation_Loop_Principle.md)
+- [Preview_Principle.md](Preview_Principle.md)
+- [Parser_Architecture.md](Parser_Architecture.md)
+- [Prompt_Registry_and_Runtime_Manifest.md](Prompt_Registry_and_Runtime_Manifest.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

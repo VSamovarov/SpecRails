@@ -203,9 +203,17 @@ Validator сообщает: поле email отсутствует required. Feed
 
 ---
 
-## 📚 Связанные документы
-– `SpecRails_Terminology_Glossary.md`
-– `SpecRails_Core_Principle.md`
-– `SpecRails_Preview_Principle.md`
-– `SpecRails_Error_and_Feedback_Cycle.md`
-– `SpecRails_Prompt_Registry_and_Runtime_Manifest.md`
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- [Core_Principle.md](Core_Principle.md)
+- [Orchestrator_and_Environment.md](Orchestrator_and_Environment.md)
+- [Error_and_Feedback_Cycle.md](Error_and_Feedback_Cycle.md)
+- [Observability_Framework.md](Observability_Framework.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

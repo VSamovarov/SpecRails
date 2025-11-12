@@ -491,8 +491,16 @@ specrails check drift --threshold 0.05
 
 ---
 
-## 📚 Связанные документы
-– `SpecRails_Governance_Policy_Matrix.md`
-– `SpecRails_Observability_Framework.md`
-– `SpecRails_Validation_Loop_Principle.md`
-– `SpecRails_Prompt_Registry_and_Runtime_Manifest.md`
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- [Prompt_Registry_and_Runtime_Manifest.md](Prompt_Registry_and_Runtime_Manifest.md)
+- [Parser_Architecture.md](Parser_Architecture.md)
+- [Orchestrator_and_Environment.md](Orchestrator_and_Environment.md)
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.

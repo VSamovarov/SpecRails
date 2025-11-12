@@ -315,3 +315,14 @@ Analyst → AI Agent → DSL → Validator → Preview → Feedback → (цик�
 ---
 
 Этот глоссарий — живой документ. При добавлении новых концепций обновляйте его в первую очередь.
+
+## Dependencies
+- Terminology_Glossary.md
+
+
+## Related Documents
+- DOCUMENTATION_MAP.md
+
+
+## Key Concepts
+- To be expanded.
