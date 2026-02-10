@@ -1,2 +1,31 @@
+# IDE
 .idea
 .vscode
+
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+*.tsbuildinfo
+
+# Test coverage
+coverage
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package manager caches
+.npm
+.yarn
+.pnp.*
+
+# Linter cache
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
