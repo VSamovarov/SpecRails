@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test:smoke": "node dist/cli.js process:extract \"School public? yes -> dept review; no -> auto checks; then decision.\""
+    "test:smoke": "node dist/src/cli.js process:extract \"School public? yes -> dept review; no -> auto checks; then decision.\""
   },
   "dependencies": {
     "ajv": "^8.17.1",
@@ -14,6 +14,8 @@
     "nanoid": "^5.0.7"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.2.3",
     "typescript": "^5.5.4"
   }
 }

@@ -5,7 +5,7 @@ import { proposalToSpec, validateSpecV1, normalizeSpec, dumpProcessYaml } from "
 function printHelp() {
   console.log([
     "Usage:",
-    "  node dist/cli.js process:extract "<free text>"",
+    '  node dist/cli.js process:extract "<free text>"',
     "",
     "Commands:",
     "  process:extract   Extract a minimal process DSL from free text via Parser + Validator.",
