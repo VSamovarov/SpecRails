@@ -22,11 +22,42 @@ Requirements: Node.js 18+
 ```bash
 npm install
 npm run build
-node dist/cli.js process:extract "Школа государственная? если да — проверка департаментом, если нет — автопроверки. Потом решение."
+
+# By default uses Mock provider (no real AI)
+node dist/src/cli.js process:extract "School public? yes -> review; no -> auto checks."
+
+# Or use real AI providers (see AI Providers section below)
+GEMINI_API_KEY=your_key node dist/src/cli.js process:extract "School public? yes -> review."
 ```
 
-By default it uses a **mock AI provider** (no network).  
-To integrate a real provider, implement `AiProvider` in `packages/parser/src/providers/`.
+### Using Real AI Providers
+
+This prototype supports multiple AI providers:
+
+- **Google Gemini** (recommended for free tier) — [docs/ai-providers/gemini.md](docs/ai-providers/gemini.md)
+- **Groq** (very fast, free) — [docs/ai-providers/groq.md](docs/ai-providers/groq.md)
+- **OpenAI** (best quality, paid) — [docs/ai-providers/openai.md](docs/ai-providers/openai.md)
+
+**Setup:**
+
+1. Get an API key from one of the providers (see docs above)
+2. Copy `.env.example` to `.env` and add your key:
+
+```bash
+cp .env.example .env
+# Edit .env and uncomment your provider
+```
+
+3. Run CLI — it will automatically detect and use the provider:
+
+```bash
+npm run build
+node dist/src/cli.js process:extract "Your text here..."
+```
+
+**Priority:** `GEMINI_API_KEY` > `GROQ_API_KEY` > `OPENAI_API_KEY` > Mock
+
+See [docs/ai-providers/README.md](docs/ai-providers/README.md) for detailed comparison and setup instructions.
 
 ## Layout
 

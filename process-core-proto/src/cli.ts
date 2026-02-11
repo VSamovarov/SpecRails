@@ -1,6 +1,42 @@
 #!/usr/bin/env node
-import { Parser, MockAiProvider } from "../packages/parser/src/index.js"
+import {
+  Parser,
+  MockAiProvider,
+  GeminiAiProvider,
+  GroqAiProvider,
+  OpenAiProvider,
+  type AiProvider,
+} from "../packages/parser/src/index.js"
 import { proposalToSpec, validateSpecV1, normalizeSpec, dumpProcessYaml } from "../packages/process-core/src/index.js"
+
+/**
+ * Создаёт провайдера на основе переменных окружения
+ * Приоритет: GEMINI_API_KEY > GROQ_API_KEY > OPENAI_API_KEY > Mock
+ */
+function createProvider(): AiProvider {
+  const geminiKey = process.env.GEMINI_API_KEY
+  const groqKey = process.env.GROQ_API_KEY
+  const openaiKey = process.env.OPENAI_API_KEY
+
+  if (geminiKey) {
+    console.error("🤖 Using Gemini AI provider")
+    return new GeminiAiProvider(geminiKey)
+  }
+
+  if (groqKey) {
+    console.error("⚡ Using Groq AI provider")
+    return new GroqAiProvider(groqKey)
+  }
+
+  if (openaiKey) {
+    console.error("🧠 Using OpenAI provider")
+    return new OpenAiProvider(openaiKey)
+  }
+
+  console.error("⚠️  Using Mock provider (no API key found)")
+  console.error("    Set GEMINI_API_KEY, GROQ_API_KEY, or OPENAI_API_KEY to use real AI")
+  return new MockAiProvider()
+}
 
 function printHelp() {
   console.log(
@@ -10,6 +46,15 @@ function printHelp() {
       "",
       "Commands:",
       "  process:extract   Extract a minimal process DSL from free text via Parser + Validator.",
+      "",
+      "Environment variables:",
+      "  GEMINI_API_KEY    Use Google Gemini AI (recommended for free tier)",
+      "  GROQ_API_KEY      Use Groq AI (fast, free tier)",
+      "  OPENAI_API_KEY    Use OpenAI GPT (best quality, paid)",
+      "",
+      "Examples:",
+      '  GEMINI_API_KEY=... node dist/cli.js process:extract "School public? yes -> review"',
+      '  GROQ_API_KEY=... node dist/cli.js process:extract "School public? yes -> review"',
     ].join("\n")
   )
 }
@@ -19,7 +64,8 @@ function formatIssues(issues: any[]) {
 }
 
 async function processExtract(userText: string) {
-  const parser = new Parser(new MockAiProvider())
+  const provider = createProvider()
+  const parser = new Parser(provider)
 
   // Attempt 1
   const out1 = await parser.run<any>({

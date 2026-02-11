@@ -12,10 +12,12 @@
     "format:check": "prettier --check \"**/*.{ts,js,json,md}\""
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "js-yaml": "^4.1.0",
-    "nanoid": "^5.0.7"
+    "nanoid": "^5.0.7",
+    "openai": "^6.21.0"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
