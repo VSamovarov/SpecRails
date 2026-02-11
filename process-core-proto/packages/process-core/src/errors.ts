@@ -1,4 +1,4 @@
-import type { ValidationIssue, ValidationSeverity } from "./types.js";
+import type { ValidationIssue, ValidationSeverity } from "./types.js"
 
 export function issue(
   severity: ValidationSeverity,
@@ -7,5 +7,5 @@ export function issue(
   path?: string,
   stepId?: string
 ): ValidationIssue {
-  return { severity, code, message, path, stepId };
+  return { severity, code, message, path, stepId }
 }

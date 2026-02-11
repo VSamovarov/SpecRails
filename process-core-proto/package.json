@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test:smoke": "node dist/src/cli.js process:extract \"School public? yes -> dept review; no -> auto checks; then decision.\""
+    "test:smoke": "node dist/src/cli.js process:extract \"School public? yes -> dept review; no -> auto checks; then decision.\"",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,json,md}\""
   },
   "dependencies": {
     "ajv": "^8.17.1",
@@ -16,6 +20,13 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1",
     "typescript": "^5.5.4"
   }
 }

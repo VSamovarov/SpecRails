@@ -4,11 +4,7 @@
   "title": "ProcessProposalV1",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "entry",
-    "lanes",
-    "steps"
-  ],
+  "required": ["entry", "lanes", "steps"],
   "properties": {
     "entry": {
       "type": "string",
@@ -20,10 +16,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "id",
-          "label"
-        ],
+        "required": ["id", "label"],
         "properties": {
           "id": {
             "type": "string",
@@ -43,11 +36,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "id",
-          "label",
-          "lane"
-        ],
+        "required": ["id", "label", "lane"],
         "properties": {
           "id": {
             "type": "string",
@@ -64,26 +53,17 @@
             "pattern": "^[a-z][a-z0-9_]*$"
           },
           "next": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": ["string", "null"],
             "minLength": 1,
             "pattern": "^[a-z][a-z0-9_]*$"
           },
           "branches": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": ["array", "null"],
             "minItems": 1,
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": [
-                "when",
-                "to"
-              ],
+              "required": ["when", "to"],
               "properties": {
                 "when": {
                   "type": "string",
@@ -109,10 +89,7 @@
                   "type": "array"
                 }
               },
-              "required": [
-                "next",
-                "branches"
-              ]
+              "required": ["next", "branches"]
             }
           }
         ]
