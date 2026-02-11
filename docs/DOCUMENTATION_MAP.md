@@ -1,13 +1,42 @@
-version: 2.0
+version: 2.1
 status: draft
 reviewed_by: AI Agent
-last_updated: 2025-11-09
+last_updated: 2026-02-11
  
 # 🗺️ Documentation Map — обзор и навигация
 
 Этот документ служит картой всех основных документов SpecRails, показывая их взаимосвязи, зависимости и ключевые концепции. Он поможет быстро ориентироваться в документации и понять, какие документы читать для решения конкретных задач.
 
+## � Быстрый старт
+
+**Новичкам начать с:**
+1. [System_Overview_Architecture](System_Overview_Architecture.md) — Обзор всей системы с блок-схемами
+2. [Terminology_Glossary](Terminology_Glossary.md) — Единая терминология
+3. [Core_Principle](Core_Principle.md) — Принципы архитектуры
+
 ## 📋 Детальная карта связей
+
+### System_Overview_Architecture
+
+**Зависимости:** Нет (обзорный документ)
+
+**Используется в:**
+- 🎯 Для понимания общей картины системы
+- 🎯 Для быстрого старта разработчиков
+
+**Ключевые концепции:**
+- Три уровня архитектуры (Core, Process, Governance)
+- Основной flow работы системы
+- **Место автокоррекции промптов в архитектуре**
+- Визуализация всех компонентов через блок-схемы
+
+**Связан с:**
+- Core_Principle (детали Core Layer)
+- Parser_Architecture (детали Parser)
+- Validation_Loop_Principle (цикл валидации)
+- Observability_Framework (метрики для автокоррекции)
+
+---
 
 ### Terminology_Glossary
 

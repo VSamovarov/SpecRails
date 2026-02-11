@@ -27,6 +27,7 @@ export class Parser {
         const msg = (validate.errors ?? []).map(e => `${e.instancePath || "/"} ${e.message}`).join("; ")
         return {
           ok: false,
+          data: res.data, // Возвращаем data даже если не прошло валидацию (для Repairer)
           meta: {
             provider: this.provider.name,
             model: res.model,

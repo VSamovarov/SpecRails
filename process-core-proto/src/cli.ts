@@ -6,6 +6,7 @@ import {
   GroqAiProvider,
   OpenAiProvider,
   type AiProvider,
+  createRepairer,
 } from "../packages/parser/src/index.js"
 import { proposalToSpec, validateSpecV1, normalizeSpec, dumpProcessYaml } from "../packages/process-core/src/index.js"
 
@@ -42,10 +43,11 @@ function printHelp() {
   console.log(
     [
       "Usage:",
-      '  node dist/cli.js process:extract "<free text>"',
+      '  node dist/cli.js <command> "<arguments>"',
       "",
       "Commands:",
-      "  process:extract   Extract a minimal process DSL from free text via Parser + Validator.",
+      "  process:extract              Extract a minimal process DSL from free text (old logic)",
+      "  process:extract-with-repair  Extract DSL with Repairer if validation fails (NEW!)",
       "",
       "Environment variables:",
       "  GEMINI_API_KEY    Use Google Gemini AI (recommended for free tier)",
@@ -53,7 +55,7 @@ function printHelp() {
       "  OPENAI_API_KEY    Use OpenAI GPT (best quality, paid)",
       "",
       "Examples:",
-      '  GEMINI_API_KEY=... node dist/cli.js process:extract "School public? yes -> review"',
+      '  GROQ_API_KEY=... node dist/cli.js process:extract-with-repair "User submits -> review"',
       '  GROQ_API_KEY=... node dist/cli.js process:extract "School public? yes -> review"',
     ].join("\n")
   )
@@ -128,6 +130,128 @@ async function processExtract(userText: string) {
   console.log(dumpProcessYaml(normalized2))
 }
 
+/**
+ * Новая команда: process:extract-with-repair
+ *
+ * Использует архитектуру Generator + Repairer:
+ * 1. Generator (обычный Parser) пытается создать DSL
+ * 2. Если не валидно → Repairer исправляет
+ */
+async function processExtractWithRepair(userText: string) {
+  console.error("\n🚀 Starting Generator + Repairer flow...\n")
+
+  const provider = createProvider()
+  const parser = new Parser(provider)
+
+  // ============================================
+  // Шаг 1: GENERATION (Generator)
+  // ============================================
+  console.error("📝 Step 1: GENERATION")
+  console.error(`   Asking AI to generate DSL from: "${userText}"`)
+
+  const generatedResult = await parser.run<any>({
+    contractId: "process.v1.extract",
+    userText,
+  })
+
+  if (!generatedResult.data) {
+    console.error("❌ Generator failed (no data returned):")
+    console.error(generatedResult.error?.message ?? "unknown")
+    if (generatedResult.rawText) console.error("Raw:", generatedResult.rawText)
+    process.exitCode = 2
+    return
+  }
+
+  const generatedProposal = generatedResult.data
+
+  // Если Generator вернул ok=false но есть data, это значит schema validation failed
+  // Это ожидаемо - мы как раз тестируем Repairer!
+  if (!generatedResult.ok) {
+    console.error("   ⚠️  DSL generated but failed schema validation")
+    console.error(`   Error: ${generatedResult.error?.message}`)
+  } else {
+    console.error("   ✅ DSL generated and passed schema validation")
+  }
+
+  // ============================================
+  // Шаг 2: VALIDATION
+  // ============================================
+  console.error("\n🔍 Step 2: VALIDATION")
+
+  const generatedSpec = proposalToSpec(generatedProposal)
+  const validation = validateSpecV1(generatedSpec, { forbidCycles: true })
+
+  if (validation.ok) {
+    // ✅ Валидация прошла с первого раза!
+    console.error("   ✅ DSL is valid! No repair needed.\n")
+
+    const normalized = normalizeSpec(generatedSpec)
+    console.log(dumpProcessYaml(normalized))
+    return
+  }
+
+  // ❌ Не прошло валидацию
+  console.error(`   ❌ DSL is invalid (${validation.issues.length} errors)`)
+  console.error("\n   Validation errors:")
+  validation.issues.forEach(issue => {
+    console.error(`   - ${issue.message}${issue.path ? ` at ${issue.path}` : ""}`)
+  })
+
+  // ============================================
+  // Шаг 3: REPAIR
+  // ============================================
+  console.error("\n🔧 Step 3: REPAIR")
+
+  // Создаем Repairer с той же моделью (Groq)
+  const repairer = createRepairer(
+    provider,
+    dsl => validateSpecV1(dsl, { forbidCycles: true }),
+    {
+      maxAttempts: 3,
+      verbose: true, // Показывать процесс
+    }
+  )
+
+  // Конвертируем validation issues в формат для Repairer
+  const validationErrors = validation.issues.map(issue => ({
+    severity: issue.severity,
+    code: issue.code,
+    message: issue.message,
+    path: issue.path,
+    stepId: issue.stepId,
+  }))
+
+  // Запускаем repair
+  const repairResult = await repairer.repair({
+    userInput: userText,
+    invalidDSL: generatedSpec,
+    validationErrors,
+    contractId: "process.v1.extract",
+  })
+
+  if (!repairResult.success) {
+    // ❌ Repairer не смог исправить
+    console.error(`\n❌ Repair failed: ${repairResult.reason}`)
+    console.error(`   Attempts used: ${repairResult.attempt}`)
+
+    if (repairResult.validationErrors) {
+      console.error("\n   Remaining errors:")
+      repairResult.validationErrors.forEach(err => {
+        console.error(`   - ${err.message}${err.path ? ` at ${err.path}` : ""}`)
+      })
+    }
+
+    process.exitCode = 4
+    return
+  }
+
+  // ✅ Успешно исправлено!
+  console.error(`\n✨ DSL successfully repaired in ${repairResult.attempt} attempt(s)!\n`)
+
+  const normalized = normalizeSpec(repairResult.repairedDSL)
+  console.log(dumpProcessYaml(normalized))
+}
+
 async function main() {
   const [, , cmd, ...rest] = process.argv
   if (!cmd || cmd === "-h" || cmd === "--help") return printHelp()
@@ -140,6 +264,17 @@ async function main() {
       return
     }
     await processExtract(userText)
+    return
+  }
+
+  if (cmd === "process:extract-with-repair") {
+    const userText = rest.join(" ").trim()
+    if (!userText) {
+      console.error("Missing free text.")
+      process.exitCode = 1
+      return
+    }
+    await processExtractWithRepair(userText)
     return
   }
 
